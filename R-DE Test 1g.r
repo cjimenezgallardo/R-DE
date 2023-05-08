@@ -22,16 +22,14 @@ cvm.test(datos$vd)
 
 
 
-#Prueba t para una muestra 
-t.test(datos$vd,mu=2,alternative="less" )# "less" sin alternative es a 2 colas.
+#Prueba t para una muestra parametrica
+t.test(datos$vd,mu=2,alternative="less" )# "less" o "greater" o "two.sided" sin alternative es a 2 colas.
 
-
-#Prueba t para una muestra por grupo.
-t.test(datos$vd[datos$vi=valor],mu=X0,alternative="greater" )# "less" sin alternative es a 2 colas.
-
-
-#prueba No parametrica una poblacion
+#prueba No parametrica una poblacion alternativa a la prueba t cuando los datos no son normales.
 wilcox.test(datos$vd,mu=Valor,exact=T, alternative="t",conf.int=0.95) #t two.sided. l =less, g = greater
+
+# Prueba Ji2 para la varianza de una poblacion cuando  s = s0
+vartest(datos$vd,null.value= 50000, alternative="two.sided", conf.level=0.95)
 
 
 #prueba Binomial para la proporcion de un grupo
@@ -39,4 +37,8 @@ wilcox.test(datos$vd,mu=Valor,exact=T, alternative="t",conf.int=0.95) #t two.sid
 #n=tama?o de la muestra
 #p0= proporcion esperada, teorica, historica, norma
 prop.test(x, n, p=p0 ,conf.level = 0.95, alternative = "two.sided")
+
+
+
+
 

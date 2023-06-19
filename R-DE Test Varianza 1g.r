@@ -9,24 +9,26 @@ var1g.test<-function(vd,vc,alternative,conf){
   
   gl<- length(vd)-1
   alfa<- 1-conf
-  
-  ji<- gl * (var(vd)*gl/(gl+1))/vc
+ 
+  ji<- gl * var(vd)/vc
   
   if (alternative=="less"){
     pvalue<- pchisq(ji,gl,lower.tail = TRUE)
+
   }else if (alternative=="greater"){
     pvalue<- pchisq(ji,gl,lower.tail = FALSE)
   }else{
     pvalue<- pchisq(ji,gl,lower.tail = TRUE)/2
   }
-  
-  print(pvalue)
+  paste("Chi-t:")
   paste(" Ji2 calculado ", ji)
+  paste("pvalue:",pvalue)
+
   
 }
 
 
 
-da<-as.data.frame(c(7.96,7.9,7.98,8.01,7.97,7.96,8.03,8.02,8.04,8.04))
+da<-as.data.frame(c(6.2,5.8,5.7,6.3,5.9,5.8,6.0))
 names(da)[1]=c("y")
-var1g.test(da$y,0.01,"less",0.95)
+var1g.test(da$y,0.1,"less",0.95)

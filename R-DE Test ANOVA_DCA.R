@@ -36,9 +36,9 @@ by(data = datos,INDICES = datos$x, FUN = function(datos){pearson.test(datos$y)})
 
 #Probando Homocedasticidad
 
-leveneTest(datos$y,datos$x, center=mean) # mejor cuando son de igual tamaño (ni) centrar en la mediana si los datos no son normales
+leveneTest(datos$y,datos$x, center=mean) # mejor cuando los ni no son de igual tamaño, centrar en la mediana si los datos no son normales
 
-bartlett.test(datos$y,datos$x) # no necesariamente los ni son iguales.
+bartlett.test(datos$y,datos$x) # necesariamente los ni deben iguales.
 
 fligner.test(datos$y,datos$x)
 

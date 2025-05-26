@@ -40,7 +40,7 @@ leveneTest(datos$y,datos$x, center=mean) # mejor cuando los ni no son de igual t
 
 bartlett.test(datos$y,datos$x) # necesariamente los ni deben iguales.
 
-fligner.test(datos$y,datos$x)
+fligner.test(datos$y,datos$x) # alternativa a LEVENE,el ni >=5
 
 bf.test(datos$y~as.factor(datos$x),data=datos) # 
 
